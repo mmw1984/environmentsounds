@@ -1,2 +1,2 @@
-# environmentsounds
-Scouting Hong Kong
+# 環境聲音樣本
+僅供參考
