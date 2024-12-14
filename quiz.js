@@ -1,44 +1,122 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// (Keep the quizQuestions array the same as in your original code)
+// Quiz questions based on the environment sounds
+const quizQuestions = [
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/小溪聲.mp3',
+    question: '這是什麼環境聲音？',
+    options: [
+      '小溪聲',
+      '浪聲',
+      '雨聲',
+      '風聲'
+    ],
+    correctAnswer: '小溪聲'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/打雷聲.mp3',
+    question: '這個聲音可能發生在什麼天氣情況下？',
+    options: [
+      '晴天',
+      '颱風天',
+      '雷雨天',
+      '下雪天'
+    ],
+    correctAnswer: '雷雨天'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/救護車聲音香港.mp3',
+    question: '這是哪個城市的救護車聲音？',
+    options: [
+      '北京',
+      '上海',
+      '香港',
+      '台北'
+    ],
+    correctAnswer: '香港'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/敲打鍵盤.mp3',
+    question: '這個聲音最可能來自哪裡？',
+    options: [
+      '廚房',
+      '辦公室',
+      '街道',
+      '學校'
+    ],
+    correctAnswer: '辦公室'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/步行聲.mp3',
+    question: '這個聲音描述了什麼動作？',
+    options: [
+      '跑步',
+      '步行',
+      '騎腳踏車',
+      '爬樓梯'
+    ],
+    correctAnswer: '步行'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/炸彈爆炸.mp3',
+    question: '這是什麼危險的聲音？',
+    options: [
+      '雷聲',
+      '煙火',
+      '炸彈爆炸',
+      '汽車爆胎'
+    ],
+    correctAnswer: '炸彈爆炸'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/硬幣跌落.mp3',
+    question: '這是什麼物品掉落的聲音？',
+    options: [
+      '鑰匙',
+      '硬幣',
+      '手機',
+      '筆'
+    ],
+    correctAnswer: '硬幣'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/雨聲.mp3',
+    question: '這是什麼天氣的聲音？',
+    options: [
+      '颱風',
+      '雨天',
+      '雷雨',
+      '下雪'
+    ],
+    correctAnswer: '雨天'
+  },
+  {
+    sound: 'https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/風聲.mp3',
+    question: '這是什麼自然現象的聲音？',
+    options: [
+      '海浪',
+      '風',
+      '河流',
+      '樹葉'
+    ],
+    correctAnswer: '風'
+  }
+];
 
 const EnvironmentSoundsQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(1);
-  
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Reset audio when question changes
+    // Play sound when question changes
     if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      setIsPlaying(false);
+      audioRef.current.load();
+      audioRef.current.play().catch(error => console.log('Audio play failed:', error));
     }
   }, [currentQuestion]);
-
-  const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(error => console.log('Audio play failed:', error));
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleVolumeChange = (e) => {
-    const newVolume = parseFloat(e.target.value);
-    setVolume(newVolume);
-    if (audioRef.current) {
-      audioRef.current.volume = newVolume;
-    }
-  };
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
@@ -89,36 +167,11 @@ const EnvironmentSoundsQuiz = () => {
     <div className="p-6 max-w-md mx-auto bg-white rounded-xl shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-center">環境聲音測驗</h1>
       
-      {/* Custom Audio Player */}
-      <div className="mb-4 bg-gray-100 p-4 rounded-lg">
-        <div className="flex items-center space-x-4">
-          {/* Play/Pause Button */}
-          <button 
-            onClick={togglePlay}
-            className="bg-blue-500 text-white p-2 rounded-full w-12 h-12 flex items-center justify-center"
-          >
-            {isPlaying ? '❚❚' : '▶'}
-          </button>
-
-          {/* Volume Slider */}
-          <input 
-            type="range" 
-            min="0" 
-            max="1" 
-            step="0.1" 
-            value={volume}
-            onChange={handleVolumeChange}
-            className="flex-grow"
-          />
-        </div>
-
-        {/* Hidden Audio Element */}
-        <audio 
-          ref={audioRef} 
-          src={currentQuizQuestion.sound}
-          onEnded={() => setIsPlaying(false)}
-        />
-      </div>
+      {/* Audio Player */}
+      <audio ref={audioRef} className="mb-4 w-full">
+        <source src={currentQuizQuestion.sound} type="audio/mpeg" />
+        您的瀏覽器不支持音頻元素。
+      </audio>
 
       {/* Question */}
       <div className="mb-4">
