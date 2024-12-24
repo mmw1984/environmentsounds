@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all buttons
+            // Update active button
             categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
             button.classList.add('active');
 
+            // Filter sounds
             const category = button.dataset.category;
-            
             soundContainers.forEach(container => {
                 if (category === 'all' || container.dataset.category === category) {
                     container.style.display = 'block';
@@ -22,28 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Lazy loading for audio
-    const lazyLoadAudio = () => {
-        const audioElements = document.querySelectorAll('audio[data-src]');
-        audioElements.forEach(audio => {
-            if (audio.dataset.src) {
-                audio.src = audio.dataset.src;
-                audio.removeAttribute('data-src');
-            }
-        });
-    };
-
-    // Optional: Add loading animation
+    // Pause other audio when one starts playing
     const audioElements = document.querySelectorAll('audio');
     audioElements.forEach(audio => {
-        audio.addEventListener('play', (e) => {
-            const container = e.target.closest('.sound-container');
-            container.classList.add('playing');
-        });
-        
-        audio.addEventListener('pause', (e) => {
-            const container = e.target.closest('.sound-container');
-            container.classList.remove('playing');
-        });
-    });
-});
