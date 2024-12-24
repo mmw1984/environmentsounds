@@ -1,181 +1,182 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="環境聲音集合">
     <title>環境聲音</title>
-    <style>
-        body {
-            font-family: Arial, 'Microsoft JhengHei', sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
-        .sound-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .sound-name {
-            margin-right: 15px;
-            font-weight: bold;
-            flex-grow: 1;
-        }
-        .author, .repo-link {
-            font-size: 0.8em;
-            color: #666;
-            margin-top: 10px;
-            text-align: center;
-        }
-        .repo-link a {
-            color: #1a73e8;
-            text-decoration: none;
-        }
-        .repo-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>17 種環境聲音</h1>
-    
-    <div class="sound-container">
-        <div class="sound-name">小溪聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/小溪聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+    <header>
+        <h1>17 款環境聲音</h1>
+        <p class="subtitle">Made by 黃梓峰 and 鄧煒霖</p>
+    </header>
 
-    <div class="sound-container">
-        <div class="sound-name">打雷聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/打雷聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+    <main>
+        <nav class="categories">
+            <button class="category-btn active" data-category="all">全部</button>
+            <button class="category-btn" data-category="nature">自然</button>
+            <button class="category-btn" data-category="animals">動物</button>
+            <button class="category-btn" data-category="urban">其他</button>
+        </nav>
 
-    <div class="sound-container">
-        <div class="sound-name">救護車聲音香港</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/救護車聲音香港.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+        <section class="sound-grid">
+            <!-- Nature Sounds -->
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">小溪聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/小溪聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">敲打鍵盤</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/敲打鍵盤.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">打雷聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/打雷聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">步行聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/步行聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <!-- Urban Sounds -->
+            <div class="sound-container" data-category="urban">
+                <div class="sound-info">
+                    <h2 class="sound-name">救護車聲音</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/救護車聲音香港.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">浪聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/浪聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="urban">
+                <div class="sound-info">
+                    <h2 class="sound-name">敲打鍵盤</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/敲打鍵盤.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">炸彈爆炸</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/炸彈爆炸.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="urban">
+                <div class="sound-info">
+                    <h2 class="sound-name">步行聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/步行聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">硬幣跌落</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/硬幣跌落.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <!-- More Nature Sounds -->
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">浪聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/浪聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">雨聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/雨聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="urban">
+                <div class="sound-info">
+                    <h2 class="sound-name">炸彈爆炸</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/炸彈爆炸.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">雷雨聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/雷雨聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="urban">
+                <div class="sound-info">
+                    <h2 class="sound-name">硬幣跌落</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/硬幣跌落.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">風聲</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/風聲.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">雨聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/雨聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">貓</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/cat.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">雷雨聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/雷雨聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">狗</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/dog.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="nature">
+                <div class="sound-info">
+                    <h2 class="sound-name">風聲</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/風聲.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">貓頭鷹</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/owl.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <!-- Animal Sounds -->
+            <div class="sound-container" data-category="animals">
+                <div class="sound-info">
+                    <h2 class="sound-name">貓</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/cat.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">豬</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/pig.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="animals">
+                <div class="sound-info">
+                    <h2 class="sound-name">狗</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/dog.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    <div class="sound-container">
-        <div class="sound-name">牛</div>
-        <audio controls>
-            <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/cow.mp3" type="audio/mpeg">
-            您的瀏覽器不支持音頻元素。
-        </audio>
-    </div>
+            <div class="sound-container" data-category="animals">
+                <div class="sound-info">
+                    <h2 class="sound-name">貓頭鷹</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/owl.mp3" type="audio/mpeg">
+                </audio>
+            </div>
 
-    
-    <p class="author">聲音作者：黃梓峰、鄧煒霖</p>
-    <p class="repo-link">聲音來源：<a href="https://github.com/mmw1984/environmentsounds" target="_blank">https://github.com/mmw1984/environmentsounds</a></p>
-    <p>注意：這些音頻源自 GitHub 存儲庫。如果音頻無法播放，請確保網絡連接正常。</p>
+            <div class="sound-container" data-category="animals">
+                <div class="sound-info">
+                    <h2 class="sound-name">豬</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/pig.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+            <div class="sound-container" data-category="animals">
+                <div class="sound-info">
+                    <h2 class="sound-name">牛</h2>
+                </div>
+                <audio controls>
+                    <source src="https://github.com/mmw1984/environmentsounds/raw/refs/heads/gh-pages/cow.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="author">Copyright 2024 mmw1984.com</p>
+        <p class="repo-link">Github：<a href="https://github.com/mmw1984/environmentsounds" target="_blank">mmw1984/environmentsounds</a></p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
