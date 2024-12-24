@@ -1,9 +1,9 @@
 :root {
     --primary-color: #1a73e8;
-    --background-color: #f4f4f4;
-    --container-bg: #ffffff;
+    --background-color: #f5f7fa;
+    --card-bg: #ffffff;
     --text-color: #333333;
-    --border-color: #dddddd;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 * {
@@ -22,8 +22,8 @@ body {
 header {
     text-align: center;
     padding: 2rem 1rem;
-    background: var(--container-bg);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
 }
 
 .subtitle {
@@ -46,12 +46,14 @@ main {
 }
 
 .category-btn {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     border: none;
     border-radius: 20px;
-    background: var(--container-bg);
+    background: var(--card-bg);
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: var(--shadow);
 }
 
 .category-btn.active {
@@ -66,10 +68,10 @@ main {
 }
 
 .sound-container {
-    background: var(--container-bg);
+    background: var(--card-bg);
     border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -86,20 +88,29 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.sound-description {
-    color: #666;
-    font-size: 0.9rem;
-}
-
 audio {
     width: 100%;
 }
 
 footer {
-    background: var(--container-bg);
+    background: var(--card-bg);
     padding: 2rem;
     margin-top: 2rem;
     text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.author, .repo-link {
+    margin: 0.5rem 0;
+}
+
+.repo-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.repo-link a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -109,11 +120,10 @@ footer {
     
     .categories {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
     
     .category-btn {
         width: 100%;
-        max-width: 300px;
     }
 }
